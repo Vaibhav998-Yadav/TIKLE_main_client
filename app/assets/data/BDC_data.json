@@ -1,0 +1,1097 @@
+{
+    "Data": [
+        {
+            "value": 67,
+            "CIK": "0001950976",
+            "ticker": "NBDC",
+            "label": "26North BDC, Inc."
+        },
+        {
+            "value": 159,
+            "CIK": "0001998387",
+            "ticker": "CLPC",
+            "label": "5C Lending Partners Corp. "
+        },
+        {
+            "value": 132,
+            "CIK": "0001634452",
+            "ticker": "ABPC",
+            "label": "AB Private Credit Investors Corp"
+        },
+        {
+            "value": 146,
+            "CIK": "0001982701",
+            "ticker": "ABPLF",
+            "label": "AB Private Lending Fund"
+        },
+        {
+            "value": 169,
+            "CIK": "0002011498",
+            "ticker": "AGLPC",
+            "label": "AGL Private Credit Income Fund"
+        },
+        {
+            "value": 144,
+            "CIK": "0001987221",
+            "ticker": "AMGC",
+            "label": "AMG Comvest Senior Lending Fund"
+        },
+        {
+            "value": 3,
+            "CIK": "0001287750",
+            "ticker": "ARCC",
+            "label": "ARES CAPITAL CORP"
+        },
+        {
+            "value": 76,
+            "CIK": "0001979306",
+            "ticker": "ADLCRC",
+            "label": "Andalusian Credit Company, LLC"
+        },
+        {
+            "value": 172,
+            "CIK": "0001976336",
+            "ticker": "APCF",
+            "label": "Antares Private Credit Fund"
+        },
+        {
+            "value": 137,
+            "CIK": "0001993402",
+            "ticker": "ANSCF",
+            "label": "Antares Strategic Credit Fund"
+        },
+        {
+            "value": 60,
+            "CIK": "0001837532",
+            "ticker": "APDS",
+            "label": "Apollo Debt Solutions BDC"
+        },
+        {
+            "value": 167,
+            "CIK": "0001676197",
+            "ticker": "CRDIX",
+            "label": "Apollo Diversified Credit Fund"
+        },
+        {
+            "value": 175,
+            "CIK": "0002052152",
+            "ticker": "AOLCT",
+            "label": "Apollo Origination II (Levered) Capital Trust"
+        },
+        {
+            "value": 176,
+            "CIK": "0002052153",
+            "ticker": "AOULT",
+            "label": "Apollo Origination II (UL) Capital Trust"
+        },
+        {
+            "value": 160,
+            "CIK": "0002031750",
+            "ticker": "ARCINF",
+            "label": "Ares Core Infrastructure Fund"
+        },
+        {
+            "value": 68,
+            "CIK": "0001918712",
+            "ticker": "ARSTIF",
+            "label": "Ares Strategic Income Fund"
+        },
+        {
+            "value": 113,
+            "CIK": "0001633858",
+            "ticker": "AUDAX",
+            "label": "Audax Credit BDC Inc."
+        },
+        {
+            "value": 45,
+            "CIK": "0001726548",
+            "ticker": "BCPLC",
+            "label": "BC Partners Lending Corporation"
+        },
+        {
+            "value": 65,
+            "CIK": "0001950572",
+            "ticker": "BIPV",
+            "label": "BIP Ventures Evergreen BDC"
+        },
+        {
+            "value": 37,
+            "CIK": "0001902649",
+            "ticker": "BRPCRF",
+            "label": "BLACKROCK PRIVATE CREDIT FUND"
+        },
+        {
+            "value": 130,
+            "CIK": "0001899017",
+            "ticker": "BACPCR",
+            "label": "Bain Capital Private Credit"
+        },
+        {
+            "value": 17,
+            "CIK": "0001655050",
+            "ticker": "BCSF",
+            "label": "Bain Capital Specialty Finance "
+        },
+        {
+            "value": 23,
+            "CIK": "0001379785",
+            "ticker": "BBDC",
+            "label": "Barings BDC, Inc."
+        },
+        {
+            "value": 32,
+            "CIK": "0001811972",
+            "ticker": "BCIC",
+            "label": "Barings Capital Investment Corp"
+        },
+        {
+            "value": 33,
+            "CIK": "0001859919",
+            "ticker": "BPCC",
+            "label": "Barings Private Credit Corp"
+        },
+        {
+            "value": 36,
+            "CIK": "0001834543",
+            "ticker": "BDLC",
+            "label": "BlackRock Direct Lending Corp."
+        },
+        {
+            "value": 15,
+            "CIK": "0001370755",
+            "ticker": "TCPC",
+            "label": "Blackrock TCP Capital Corp."
+        },
+        {
+            "value": 102,
+            "CIK": "0001803498",
+            "ticker": "BCRED",
+            "label": "Blackstone Private Credit Fund"
+        },
+        {
+            "value": 169,
+            "CIK": "0002032432",
+            "ticker":"BMACX",
+            "label": "Blackstone Private Multi-Asset Credit & Income Fund"
+
+        },
+        {
+            "value": 71,
+            "CIK": "0001736035",
+            "ticker": "BXSL",
+            "label": "Blackstone Secured Lending Fund"
+        },
+        {
+            "value": 20,
+            "CIK": "0001655888",
+            "ticker": "OBDC",
+            "label": "Blue Owl Capital Corporation"
+        },
+        {
+            "value": 64,
+            "CIK": "0001655887",
+            "ticker": "OBDCII",
+            "label": "Blue Owl Capital Corporation II"
+        },
+        {
+            "value": 21,
+            "CIK": "0001807427",
+            "ticker": "OBDE",
+            "label": "Blue Owl Capital Corporation III"
+        },
+        {
+            "value": 54,
+            "CIK": "0001812554",
+            "ticker": "OCINCC",
+            "label": "Blue Owl Credit Income Corp."
+        },
+        {
+            "value": 63,
+            "CIK": "0001747777",
+            "ticker": "OTFINC",
+            "label": "Blue Owl Technology Finance Corp."
+        },
+        {
+            "value": 52,
+            "CIK": "0001889668",
+            "ticker": "ORTFII",
+            "label": "Blue Owl Technology Finance Corp. II"
+        },
+        {
+            "value": 53,
+            "CIK": "0001869453",
+            "ticker": "OWLRTI",
+            "label": "Blue Owl Technology Income Corp."
+        },
+        {
+            "value": 55,
+            "CIK": "0001895316",
+            "ticker": "BRCCRPI",
+            "label": "Brightwood Capital Corp I"
+        },
+        {
+            "value": 2,
+            "CIK": "0000017313",
+            "ticker": "CSWC",
+            "label": "CAPITAL SOUTHWEST CORP"
+        },
+        {
+            "value": 179,
+            "CIK": "0002017636",
+            "ticker": "CCXIP",
+            "label": "CCS IX Portfolio Holdings, LLC"
+        },
+        {
+            "value": 27,
+            "CIK": "0001534254",
+            "ticker": "CION",
+            "label": "CION Investment Corp"
+        },
+        {
+            "value": 98,
+            "CIK": "0001702510",
+            "ticker": "CGBD2",
+            "label": "Carlyle Credit Solutions, Inc."
+        },
+        {
+            "value": 101,
+            "CIK": "0001851277",
+            "ticker": "CGBD3",
+            "label": "Carlyle Secured Lending III "
+        },
+        {
+            "value": 16,
+            "CIK": "0001544206",
+            "ticker": "CGBD",
+            "label": "Carlyle Secured Lending, Inc."
+        },
+        {
+            "value": 163,
+            "CIK": "0001725472",
+            "ticker": "TAKIX",
+            "label": "Carlyle Tactical Private Credit Fund"
+        },
+        {
+            "value": 59,
+            "CIK": "0001843162",
+            "ticker": "LIEN",
+            "label": "Chicago Atlantic BDC, Inc."
+        },
+        {
+            "value": 168,
+            "CIK": "0001678124",
+            "ticker": "CADUX",
+            "label": "Cion Ares Diversified Credit Fund"
+        },
+        {
+            "value": 162,
+            "CIK": "0001735964",
+            "ticker": "CCLFX",
+            "label": "Cliffwater Corporate Lending Fund"
+        },
+        {
+            "value": 181,
+            "CIK": "0001842754",
+            "ticker": "CELFX",
+            "label": "Cliffwater Enhanced Lending Fund"
+        },
+        {
+            "value": 90,
+            "CIK": "0001841514",
+            "ticker": "CWCP",
+            "label": "Commonwealth Credit Partners BDC I, Inc. "
+        },
+        {
+            "value": 70,
+            "CIK": "0001633336",
+            "ticker": "CCAP",
+            "label": "Crescent Capital BDC"
+        },
+        {
+            "value": 110,
+            "CIK": "0001954360",
+            "ticker": "CPCRIC",
+            "label": "Crescent Private Credit Income Corp."
+        },
+        {
+            "value": 56,
+            "CIK": "0001916099",
+            "ticker": "DIACRC",
+            "label": "Diameter Credit Co"
+        },
+        {
+            "value": 135,
+            "CIK": "0000878932",
+            "ticker": "EQS",
+            "label": "EQUUS TOTAL RETURN, INC"
+        },
+        {
+            "value": 8,
+            "CIK": "0001513363",
+            "ticker": "FDUS",
+            "label": "FIDUS INVESTMENT Corp"
+        },
+        {
+            "value": 25,
+            "CIK": "0001422183",
+            "ticker": "FSK",
+            "label": "FS KKR Capital Corp"
+        },
+        {
+            "value": 120,
+            "CIK": "0001501729",
+            "ticker": "FSEN",
+            "label": "FS Specialty Lending Fund"
+        },
+        {
+            "value": 94,
+            "CIK": "0001899996",
+            "ticker": "FPCRCF",
+            "label": "Fidelity Private Credit Company LLC"
+        },
+        {
+            "value": 92,
+            "CIK": "0001920453",
+            "ticker": "FIPRCF",
+            "label": "Fidelity Private Credit Fund"
+        },
+        {
+            "value": 166,
+            "CIK": "0001818416",
+            "ticker": "FECRX",
+            "label": "First Eagle Credit Opportunities Fund"
+        },
+        {
+            "value": 118,
+            "CIK": "0001890107",
+            "ticker": "FEPC",
+            "label": "First Eagle Private Credit Fund"
+        },
+        {
+            "value": 129,
+            "CIK": "0001495584",
+            "ticker": "SVVC",
+            "label": "Firsthand Technology Value Fund, Inc."
+        },
+        {
+            "value": 126,
+            "CIK": "0001825248",
+            "ticker": "FBSP",
+            "label": "Franklin BSP Capital Corp"
+        },
+        {
+            "value": 18,
+            "CIK": "0002018545",
+            "ticker": "FBSPRE",
+            "label": "Franklin BSP Real Estate Debt BDC"
+        },
+        {
+            "value": 39,
+            "CIK": "0001321741",
+            "ticker": "GAIN",
+            "label": "GLADSTONE INVESTMENT CORPORATION\\\\DE"
+        },
+        {
+            "value": 106,
+            "CIK": "0001618697",
+            "ticker": "GCIF",
+            "label": "GUGGENHEIM CREDIT INCOME FUND"
+        },
+        {
+            "value": 24,
+            "CIK": "0001143513",
+            "ticker": "GLAD",
+            "label": "Gladstone Capital Corp"
+        },
+        {
+            "value": 49,
+            "CIK": "0001572694",
+            "ticker": "GSBD",
+            "label": "Goldman Sachs BDC, Inc."
+        },
+        {
+            "value": 85,
+            "CIK": "0001865174",
+            "ticker": "GSMMII",
+            "label": "Goldman Sachs Middle Market Lending Corp. II"
+        },
+        {
+            "value": 104,
+            "CIK": "0001920145",
+            "ticker": "GSPCCP",
+            "label": "Goldman Sachs Private Credit Corp."
+        },
+        {
+            "value": 86,
+            "CIK": "0001772704",
+            "ticker": "GSMC2",
+            "label": "Goldman Sachs Private Middle Market Credit II LLC"
+        },
+        {
+            "value": 87,
+            "CIK": "0001674760",
+            "ticker": "SCAHO",
+            "label": "Silver Capital Holdings LLC"
+        },
+        {
+            "value": 153,
+            "CIK": "0001901612",
+            "ticker": "GBDC4",
+            "label": "Golub Capital BDC 4 Inc. "
+        },
+        {
+            "value": 149,
+            "CIK": "0001476765",
+            "ticker": "GBDC",
+            "label": "Golub Capital BDC, Inc."
+        },
+        {
+            "value": 157,
+            "CIK": "0001868878",
+            "ticker": "GCDL",
+            "label": "Golub Capital Direct Lending Corp"
+        },
+        {
+            "value": 154,
+            "CIK": "0001901606",
+            "ticker": "GCDU",
+            "label": "Golub Capital Direct Lending Unlevered Corp "
+        },
+        {
+            "value": 158,
+            "CIK": "0001930087",
+            "ticker": "GBCPCF",
+            "label": "Golub Capital Private Credit Fund"
+        },
+        {
+            "value": 10,
+            "CIK": "0001675033",
+            "ticker": "GECC",
+            "label": "Great Elm Capital Corp."
+        },
+        {
+            "value": 145,
+            "CIK": "0001989817",
+            "ticker": "HPSCSF",
+            "label": "HPS Corporate Capital Solutions Fund"
+        },
+        {
+            "value": 127,
+            "CIK": "0001838126",
+            "ticker": "HPSC",
+            "label": "HPS Corporate Lending Fund"
+        },
+        {
+            "value": 61,
+            "CIK": "0001661306",
+            "ticker": "HPCPIN",
+            "label": "Hancock Park Corporate Income, Inc."
+        },
+        {
+            "value": 6,
+            "CIK": "0001280784",
+            "ticker": "HTGC",
+            "label": "Hercules Capital, Inc."
+        },
+        {
+            "value": 4,
+            "CIK": "0001487428",
+            "ticker": "HRZN",
+            "label": "Horizon Technology Finance Corp"
+        },
+        {
+            "value": 123,
+            "CIK": "0001578348",
+            "ticker": "ICMB",
+            "label": "Investcorp Credit Management BDC, Inc."
+        },
+        {
+            "value": 139,
+            "CIK": "0001959604",
+            "ticker": "JCPB",
+            "label": "Jefferies Credit Partners BDC Inc."
+        },
+        {
+            "value": 165,
+            "CIK": "0001787621",
+            "ticker": "KCOPX",
+            "label": "KKR Credit Opportunities Fund"
+        },
+        {
+            "value": 141,
+            "CIK": "0002012839",
+            "ticker": "KKRDL",
+            "label": "KKR Enhanced US Direct Lending Fund-L Inc."
+        },
+        {
+            "value": 117,
+            "CIK": "0001930679",
+            "ticker": "KKRFSI",
+            "label": "KKR FS Income Trust"
+        },
+        {
+            "value": 122,
+            "CIK": "0001975736",
+            "ticker": "KKRIT",
+            "label": "KKR FS Income Trust Select"
+        },
+        {
+            "value": 97,
+            "CIK": "0001747172",
+            "ticker": "KBDC",
+            "label": "Kayne Anderson BDC, Inc."
+        },
+        {
+            "value": 111,
+            "CIK": "0001850787",
+            "ticker": "KAYDLI",
+            "label": "Kayne DL 2021, Inc."
+        },
+        {
+            "value": 114,
+            "CIK": "0001911321",
+            "ticker": "KLCCOM",
+            "label": "Kennedy Lewis Capital Company"
+        },
+        {
+            "value": 180,
+            "CIK": "0002043759",
+            "ticker": "LAEC",
+            "label": "LAGO Evergreen Credit"
+        },
+        {
+            "value": 103,
+            "CIK": "0001983514",
+            "ticker": "LGAMPC",
+            "label": "LGAM Private credit LLC"
+        },
+        {
+            "value": 50,
+            "CIK": "0001849089",
+            "ticker": "LASQ",
+            "label": "Lafayette Square USA, Inc. "
+        },
+        {
+            "value": 43,
+            "CIK": "0001571329",
+            "ticker": "LRFC",
+            "label": "Logan Ridge Finance Corporation"
+        },
+        {
+            "value": 170,
+            "CIK": "0002008748",
+            "ticker": "LAPCF",
+            "label": "Lord Abbett Private Credit Fund"
+        },
+        {
+            "value": 177,
+            "CIK": "0002041841",
+            "ticker": "LAPCS",
+            "label": "Lord Abbett Private Credit Fund S"
+        },
+        {
+            "value": 115,
+            "CIK": "0001535778",
+            "ticker": "MSCI",
+            "label": "MSC INCOME FUND, INC."
+        },
+        {
+            "value": 69,
+            "CIK": "0001849894",
+            "ticker": "MSD",
+            "label": "MSD Investment Corp"
+        },
+        {
+            "value": 41,
+            "CIK": "0001396440",
+            "ticker": "MAIN",
+            "label": "Main Street Capital CORP"
+        },
+        {
+            "value": 143,
+            "CIK": "0001988280",
+            "ticker": "MLPCRF",
+            "label": "Manulife Private Credit Fund"
+        },
+        {
+            "value": 22,
+            "CIK": "0001278752",
+            "ticker": "MFIC",
+            "label": "MidCap Financial Investment Corporation"
+        },
+        {
+            "value": 142,
+            "CIK": "0002006758",
+            "ticker": "MMAI",
+            "label": "Middle Market Apollo Institutional Private Lending"
+        },
+        {
+            "value": 73,
+            "CIK": "0001512931",
+            "ticker": "MRCC",
+            "label": "Monroe Capital Corporation"
+        },
+        {
+            "value": 66,
+            "CIK": "0001742313",
+            "ticker": "MCIP",
+            "label": "Monroe Capital Income Plus Corp"
+        },
+        {
+            "value": 40,
+            "CIK": "0001782524",
+            "ticker": "MSDL",
+            "label": "Morgan Stanley Direct Lending Fund"
+        },
+        {
+            "value": 136,
+            "CIK": "0001779523",
+            "ticker": "MUNBDC",
+            "label": "Muzinich BDC, Inc."
+        },
+        {
+            "value": 138,
+            "CIK": "0001985375",
+            "ticker": "MCLIFI",
+            "label": "Muzinich Corporate Lending Income Fund, Inc"
+        },
+        {
+            "value": 119,
+            "CIK": "0001766037",
+            "ticker": "NMFS",
+            "label": "NMF SLF I, Inc. "
+        },
+        {
+            "value": 74,
+            "CIK": "0001911066",
+            "ticker": "NCPCIF",
+            "label": "NUVEEN CHURCHILL PRIVATE CAPITAL INCOME FUND"
+        },
+        {
+            "value": 5,
+            "CIK": "0001496099",
+            "ticker": "NMFC",
+            "label": "New Mountain Finance Corp"
+        },
+        {
+            "value": 93,
+            "CIK": "0001781870",
+            "ticker": "NMTG3",
+            "label": "New Mountain Guardian III BDC, L.L.C."
+        },
+        {
+            "value": 107,
+            "CIK": "0001925531",
+            "ticker": "NMG4",
+            "label": "New Mountain Guardian IV BDC, L.L.C. "
+        },
+        {
+            "value": 89,
+            "CIK": "0001976719",
+            "ticker": "NMGIVI",
+            "label": "New Mountain Guardian IV Income Fund, L.L.C."
+        },
+        {
+            "value": 173,
+            "CIK": "0002037804",
+            "ticker": "NEWCRED",
+            "label": "New Mountain Private Credit Fund"
+        },
+        {
+            "value": 131,
+            "CIK": "0001588272",
+            "ticker": "NXPT",
+            "label": "NexPoint Capital, Inc."
+        },
+        {
+            "value": 91,
+            "CIK": "0001973476",
+            "ticker": "NHPIFA",
+            "label": "North Haven Private Income Fund A LLC"
+        },
+        {
+            "value": 82,
+            "CIK": "0001851322",
+            "ticker": "NHPI",
+            "label": "North Haven Private Income Fund LLC"
+        },
+        {
+            "value": 26,
+            "CIK": "0001737924",
+            "ticker": "NCDL",
+            "label": "Nuveen Churchill Direct Lending Corp."
+        },
+        {
+            "value": 11,
+            "CIK": "0002022625",
+            "ticker": "NCPCRF",
+            "label": "Nuveen Churchill Private Credit Fund"
+        },
+        {
+            "value": 7,
+            "CIK": "0001487918",
+            "ticker": "OFS",
+            "label": "OFS Capital Corp"
+        },
+        {
+            "value": 48,
+            "CIK": "0001955010",
+            "ticker": "OSPLFL",
+            "label": "OHA Senior Private Lending Fund (U) LLC"
+        },
+        {
+            "value": 155,
+            "CIK": "0001974793",
+            "ticker": "OGOLPL",
+            "label": "Oaktree Gardens OLP, LLC"
+        },
+        {
+            "value": 148,
+            "CIK": "0001414932",
+            "ticker": "OCSL",
+            "label": "Oaktree Specialty Lending Corporation"
+        },
+        {
+            "value": 156,
+            "CIK": "0001872371",
+            "ticker": "OSCF",
+            "label": "Oaktree Strategic Credit Fund "
+        },
+        {
+            "value": 58,
+            "CIK": "0001860424",
+            "ticker": "ONEX",
+            "label": "Onex Direct Lending BDC Fund "
+        },
+        {
+            "value": 147,
+            "CIK": "0001965934",
+            "ticker": "OLDAT",
+            "label": "Overland Advantage"
+        },
+        {
+            "value": 13,
+            "CIK": "0001259429",
+            "ticker": "OXSQ",
+            "label": "Oxford Square Capital Corp."
+        },
+        {
+            "value": 151,
+            "CIK": "0001383414",
+            "ticker": "PNNT",
+            "label": "PENNANTPARK INVESTMENT CORP"
+        },
+        {
+            "value": 88,
+            "CIK": "0001923622",
+            "ticker": "PGIMPC",
+            "label": "PGIM Private Credit Fund"
+        },
+        {
+            "value": 105,
+            "CIK": "0001905824",
+            "ticker": "PCSBDC",
+            "label": "PIMCO Capital Solutions BDC Corp."
+        },
+        {
+            "value": 164,
+            "CIK": "0000810893",
+            "ticker": "PIMIX",
+            "label": "PIMCO FUNDS"
+        },
+        {
+            "value": 46,
+            "CIK": "0001287032",
+            "ticker": "PSEC",
+            "label": "PROSPECT CAPITAL CORP"
+        },
+        {
+            "value": 12,
+            "CIK": "0001794776",
+            "ticker": "PSBD",
+            "label": "Palmer Square Capital BDC INC."
+        },
+        {
+            "value": 150,
+            "CIK": "0001504619",
+            "ticker": "PFLT",
+            "label": "PennantPark Floating Rate Capital Ltd."
+        },
+        {
+            "value": 152,
+            "CIK": "0001490349",
+            "ticker": "PFX",
+            "label": "Phenixfin Corp"
+        },
+        {
+            "value": 84,
+            "CIK": "0001948368",
+            "ticker": "PSMML",
+            "label": "Phillip Street Middle Market Lending Fund LLC"
+        },
+        {
+            "value": 42,
+            "CIK": "0001372807",
+            "ticker": "PTMN",
+            "label": "Portman Ridge Finance Corporation"
+        },
+        {
+            "value": 121,
+            "CIK": "0000845385",
+            "ticker": "PIAC",
+            "label": "Princeton Capital Corporation"
+        },
+        {
+            "value": 134,
+            "CIK": "0001521945",
+            "ticker": "PSIF",
+            "label": "Prospect Floating Rate & Alternative Income Fund, Inc."
+        },
+        {
+            "value": 30,
+            "CIK": "0000081955",
+            "ticker": "RAND",
+            "label": "Rand Capital Corporation"
+        },
+        {
+            "value": 100,
+            "CIK": "0001870267",
+            "ticker": "REIC",
+            "label": "Redwood Enhanced Income Corp. "
+        },
+        {
+            "value": 72,
+            "CIK": "0001653384",
+            "ticker": "RWAY",
+            "label": "Runway Growth Finance Corp."
+        },
+        {
+            "value": 1,
+            "CIK": "0001377936",
+            "ticker": "SAR",
+            "label": "SARATOGA INVESTMENT CORP."
+        },
+        {
+            "value": 38,
+            "CIK": "0001743415",
+            "ticker": "SCPP",
+            "label": "SCP Private Credit Income BDC LLC"
+        },
+        {
+            "value": 171,
+            "CIK": "0002028686",
+            "ticker": "SLFII",
+            "label": "SL Investment Fund II LLC"
+        },
+        {
+            "value": 34,
+            "CIK": "0001832148",
+            "ticker": "SLRHBL",
+            "label": "SLR HC BDC LLC"
+        },
+        {
+            "value": 19,
+            "CIK": "0001418076",
+            "ticker": "SLRC",
+            "label": "SLR Investment Corp."
+        },
+        {
+            "value": 35,
+            "CIK": "0001932591",
+            "ticker": "SLRPCB",
+            "label": "SLR Private Credit BDC II LLC"
+        },
+        {
+            "value": 140,
+            "CIK": "0001959568",
+            "ticker": "SNCI",
+            "label": "Senior Credit Investments, LLC"
+        },
+        {
+            "value": 78,
+            "CIK": "0001646614",
+            "ticker": "SRPSLF",
+            "label": "Silver Point Specialty Lending Fund"
+        },
+        {
+            "value": 31,
+            "CIK": "0001925309",
+            "ticker": "SIXSLP",
+            "label": "Sixth Street Lending Partners"
+        },
+        {
+            "value": 14,
+            "CIK": "0001508655",
+            "ticker": "TSLX",
+            "label": "Sixth Street Specialty Lending"
+        },
+        {
+            "value": 133,
+            "CIK": "0001786835",
+            "ticker": "SMLMMC",
+            "label": "Star Mountain Lower Middle-Market Capital Corp"
+        },
+        {
+            "value": 95,
+            "CIK": "0001817825",
+            "ticker": "STCC",
+            "label": "Steele Creek Capital Corp"
+        },
+        {
+            "value": 44,
+            "CIK": "0001551901",
+            "ticker": "SCM",
+            "label": "Stellus Capital Investment Corp"
+        },
+        {
+            "value": 77,
+            "CIK": "0001901037",
+            "ticker": "SPCB",
+            "label": "Stellus Private Credit BDC "
+        },
+        {
+            "value": 128,
+            "CIK": "0001950803",
+            "ticker": "SSPCFL",
+            "label": "StepStone Private Credit Fund LLC"
+        },
+        {
+            "value": 81,
+            "CIK": "0001825384",
+            "ticker": "SPCC",
+            "label": "Stone Point Credit Corp"
+        },
+        {
+            "value": 178,
+            "CIK": "0002031283",
+            "ticker": "SPCIF",
+            "label": "Stone Point Credit Income Fund"
+        },
+        {
+            "value": 62,
+            "CIK": "0001509470",
+            "ticker": "SSSS",
+            "label": "SuRo Capital Corp."
+        },
+        {
+            "value": 112,
+            "CIK": "0001885968",
+            "ticker": "TSER",
+            "label": "T Series Middle Market Loan Fund LLC "
+        },
+        {
+            "value": 47,
+            "CIK": "0001901164",
+            "ticker": "TRPOSF",
+            "label": "T. Rowe Price OHA Select Private Credit Fund "
+        },
+        {
+            "value": 96,
+            "CIK": "0001603480",
+            "ticker": "TCWD",
+            "label": "TCW Direct Lending LLC"
+        },
+        {
+            "value": 79,
+            "CIK": "0001715933",
+            "ticker": "TCWD7",
+            "label": "TCW Direct Lending VII LLC"
+        },
+        {
+            "value": 99,
+            "CIK": "0001825265",
+            "ticker": "TDVIII",
+            "label": "TCW Direct Lending VIII LLC"
+        },
+        {
+            "value": 80,
+            "CIK": "0001916608",
+            "ticker": "TCWSDL",
+            "label": "TCW Star Direct Lending LLC"
+        },
+        {
+            "value": 83,
+            "CIK": "0001913724",
+            "ticker": "ATBCIF",
+            "label": "TPG Twin Brook Capital Income Fund"
+        },
+        {
+            "value": 9,
+            "CIK": "0001786108",
+            "ticker": "TRIN",
+            "label": "Trinity Capital Inc. "
+        },
+        {
+            "value": 51,
+            "CIK": "0001792509",
+            "ticker": "TPVC",
+            "label": "TriplePoint Private Venture Credit Inc."
+        },
+        {
+            "value": 29,
+            "CIK": "0001580345",
+            "ticker": "TPVG",
+            "label": "TriplePoint Venture Growth BDC Corp."
+        },
+        {
+            "value": 161,
+            "CIK": "0001527385",
+            "ticker": "PKCOII",
+            "label": "VII Peaks Co-Optivist Income BDC II, Inc."
+        },
+        {
+            "value": 57,
+            "CIK": "0001919369",
+            "ticker": "VCRS",
+            "label": "VISTA CREDIT STRATEGIC LENDING CORP."
+        },
+        {
+            "value": 75,
+            "CIK": "0001784700",
+            "ticker": "VCC",
+            "label": "Varagon Capital Corp"
+        },
+        {
+            "value": 108,
+            "CIK": "0001717310",
+            "ticker": "VLL9",
+            "label": "Venture Lending & Leasing IX, Inc."
+        },
+        {
+            "value": 109,
+            "CIK": "0001850938",
+            "ticker": "WTIF",
+            "label": "WTI Fund X, Inc."
+        },
+        {
+            "value": 116,
+            "CIK": "0001987731",
+            "ticker": "WTIXI",
+            "label": "WTI Fund XI, Inc."
+        },
+        {
+            "value": 125,
+            "CIK": "0001922947",
+            "ticker": "WLREIF",
+            "label": "Wellings Real Estate Income Fund"
+        },
+        {
+            "value": 124,
+            "CIK": "0002020354",
+            "ticker": "WBBD",
+            "label": "West Bay BDC LLC"
+        },
+        {
+            "value": 28,
+            "CIK": "0001552198",
+            "ticker": "WHF",
+            "label": "WhiteHorse Finance, Inc."
+        },
+        {
+            "value": 174,
+            "CIK": "0001944831",
+            "ticker": "WTCC",
+            "label": "Willow Tree Capital Corp"
+        }
+    ]
+}

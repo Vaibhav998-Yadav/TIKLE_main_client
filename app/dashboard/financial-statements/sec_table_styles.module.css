@@ -1,0 +1,67 @@
+/* sec_table_styles.module.css */
+
+/* ✅ Scoped parent container */
+.sec-html-content {
+  width: 100%;
+  height: 100%;
+}
+
+/* All table styles now scoped */
+.sec-html-content .table-container {
+  width: 80%;
+  height: 80%;
+  overflow: auto;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.sec-html-content .table-container::-webkit-scrollbar {
+  display: none;
+}
+
+.sec-html-content table {
+  width: 100%;
+  border-collapse: collapse;
+  color: black;
+  text-align: center;
+}
+
+.sec-html-content table th {
+  padding: 8px;
+  border: 1px solid #ddd;
+  background-color: #444;
+  color: #fff;
+  font-weight: bold;
+}
+
+.sec-html-content table td {
+  padding: 4px;
+  border: 1px solid #ddd;
+}
+
+.sec-html-content table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.sec-html-content table tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.sec-html-content th div {
+  width: 100% !important;
+  text-align: center;
+}
+
+/* Left align only the first column (both th and td) */
+.sec-html-content table th:first-child,
+.sec-html-content table td:first-child {
+  text-align: left;
+  padding-left: 12px; /* optional for better readability */
+}
+
+/* Right align all other columns (both th and td) */
+.sec-html-content table th:not(:first-child),
+.sec-html-content table td:not(:first-child) {
+  text-align: right;
+  padding-right: 12px; /* optional */
+}

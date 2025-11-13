@@ -1,0 +1,33 @@
+# This is an example Starter pipeline configuration
+# Use a skeleton to build, test and deploy using manual and parallel steps
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+image: atlassian/default-image:3
+pipelines:
+  branches:
+    main:  # This ensures the pipeline runs only for the `main` branch
+      - step:
+          name: Build and Deploy to EC2
+          deployment: production
+          caches:
+            - node
+          script:
+            # Step 1: Install sshpass (for password-based SSH authentication)
+            - apt-get update && apt-get install -y sshpass
+            # Step 2: Create directory and set permissions on EC2 using SSH
+            - sshpass -p $EC2_PASSWORD ssh -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST "mkdir -p /var/www/main_application_frontend && sudo chown -R $EC2_USER:$EC2_USER /var/www/main_application_frontend"
+            # Step 3: Copy project files to EC2 using SCP
+            - sshpass -p $EC2_PASSWORD scp -o StrictHostKeyChecking=no -r ./* $EC2_USER@$EC2_HOST:/var/www/main_application_frontend
+            # Step 4: Create .env.production file directly on EC2 and run deployment commands
+            - sshpass -p $EC2_PASSWORD ssh -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST "
+                cd /var/www/main_application_frontend &&
+                echo 'NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=$NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY' > .env.production &&
+                echo 'CLERK_SECRET_KEY=$CLERK_SECRET_KEY' >> .env.production &&
+                npm install &&
+                npm run build &&
+                if pm2 list | grep -q 'main_application_frontend'; then
+                  pm2 restart main_application_frontend --update-env;
+                else
+                  pm2 start npm --name 'main_application_frontend' -- start;
+                fi
+              "

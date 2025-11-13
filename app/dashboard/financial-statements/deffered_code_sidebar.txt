@@ -1,0 +1,213 @@
+"use client";
+
+import React, { useEffect, useMemo, useState } from "react";
+import ExcelJS from "exceljs";
+import styles from "./sec_table_styles.module.css";
+
+interface Props {
+  activeItem: string;
+  filingData: {
+    accessionNumber: string;
+    primaryDocument: string;
+  } | null;
+  statementsLoading: boolean;
+  groupedReports?: Record<string, any[]> | null;
+}
+
+export default function SidebarContentTables({
+  activeItem,
+  filingData,
+  statementsLoading,
+  groupedReports,
+}: Props) {
+  const [htmlContent, setHtmlContent] = useState<string | null>(null);
+  const [loadingHtml, setLoadingHtml] = useState(false);
+
+  // ✅ Find selected report
+  const selectedReport = useMemo(() => {
+    if (!groupedReports) return null;
+    for (const [_, reports] of Object.entries(groupedReports)) {
+      const match = reports.find(
+        (r) =>
+          r.shortName?.trim().toLowerCase() === activeItem?.trim().toLowerCase()
+      );
+      if (match) return match;
+    }
+    return null;
+  }, [groupedReports, activeItem]);
+
+  // ✅ Detect “Schedule of Investments” or similar
+  const isScheduleOfInvestments = useMemo(() => {
+    if (!selectedReport?.shortName) return false;
+    const name = selectedReport.shortName.toLowerCase();
+    return (
+      name.includes("schedule of investments") ||
+      name.includes("schedule of portfolio holdings") ||
+      name.includes("portfolio investments") ||
+      name.includes("investment schedule")
+    );
+  }, [selectedReport]);
+
+  // ✅ Construct SEC URL
+  const reportUrl = useMemo(() => {
+    if (!selectedReport || !filingData?.accessionNumber) return null;
+    const accessionClean = filingData.accessionNumber.replace(/-/g, "");
+    const cikMatch = selectedReport.instance.match(/ck(\d+)-/);
+    const cik = cikMatch ? cikMatch[1] : null;
+    if (!cik) return null;
+    return `https://www.sec.gov/Archives/edgar/data/${cik}/${accessionClean}/${selectedReport.htmlFileName}`;
+  }, [selectedReport, filingData]);
+
+  // ✅ Fetch HTML (only if not schedule)
+  useEffect(() => {
+    if (!reportUrl || isScheduleOfInvestments) return;
+    setLoadingHtml(true);
+    setHtmlContent(null);
+
+    fetch(`https://api.tikle.in/fetch-filing-html?url=${reportUrl}`)
+      .then(async (res) => {
+        if (!res.ok) throw new Error(`HTTP error: ${res.status}`);
+        const text = await res.text();
+        const wrappedHtml = `
+          <div class="table-container">
+            ${text}
+          </div>
+        `;
+        setHtmlContent(wrappedHtml);
+      })
+      .catch((err) => {
+        console.error("❌ Failed to load SEC HTML:", err);
+        setHtmlContent("<p class='text-red-600'>Failed to load filing content.</p>");
+      })
+      .finally(() => setLoadingHtml(false));
+  }, [reportUrl, isScheduleOfInvestments]);
+
+  // ✅ Excel Download Logic
+  const handleDownloadExcel = async () => {
+    try {
+      if (!htmlContent && !isScheduleOfInvestments) {
+        alert("No content available for export.");
+        return;
+      }
+
+      const workbook = new ExcelJS.Workbook();
+      const sheet = workbook.addWorksheet("SEC Filing");
+
+      if (isScheduleOfInvestments) {
+        // If file is too large, create a placeholder sheet
+        sheet.addRow(["Schedule of Investments"]);
+        sheet.addRow(["File too large to render in browser."]);
+        sheet.addRow(["Please view or download the filing directly from SEC.gov."]);
+      } else {
+        const container = document.createElement("div");
+        container.innerHTML = htmlContent || "";
+        const tables = container.querySelectorAll("table");
+        if (!tables.length) {
+          alert("No tables found in this report to export.");
+          return;
+        }
+
+        tables.forEach((table, tIndex) => {
+          if (tIndex > 0) sheet.addRow([]); // space between tables
+          const rows = Array.from(table.querySelectorAll("tr"));
+          rows.forEach((row) => {
+            const cells = Array.from(row.querySelectorAll("th, td"));
+            const values = cells.map((c) => c.textContent?.trim() || "");
+            sheet.addRow(values);
+          });
+        });
+
+        // Style cells
+        sheet.eachRow((row) => {
+          row.eachCell((cell) => {
+            cell.alignment = { vertical: "middle", horizontal: "center" };
+            cell.border = {
+              top: { style: "thin" },
+              bottom: { style: "thin" },
+              left: { style: "thin" },
+              right: { style: "thin" },
+            };
+          });
+        });
+      }
+
+      const buffer = await workbook.xlsx.writeBuffer();
+      const blob = new Blob([buffer], {
+        type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = `${activeItem.replace(/\s+/g, "_")}.xlsx`;
+      link.click();
+      URL.revokeObjectURL(link.href);
+    } catch (err) {
+      console.error("❌ Excel Export Failed:", err);
+      alert("Failed to export Excel. Check console for details.");
+    }
+  };
+
+  // ====== Rendering ======
+  if (statementsLoading) {
+    return <p className="text-muted-foreground animate-pulse">Fetching statements...</p>;
+  }
+
+  if (!groupedReports) {
+    return <p className="text-muted-foreground">No filing loaded yet.</p>;
+  }
+
+  if (!selectedReport) {
+    return <p className="text-muted-foreground">Select a report from the sidebar.</p>;
+  }
+
+  return (
+    <div className="flex flex-col h-[calc(100vh-250px)]">
+      {/* ===== Header Section ===== */}
+      <div className="text-sm text-muted-foreground mb-2 flex justify-between items-center">
+        <div className="flex items-center gap-4 ml-2">
+          <a
+            href={reportUrl ?? "#"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline whitespace-nowrap"
+          >
+            View on SEC.gov ↗
+          </a>
+
+          {/* ✅ Download Button */}
+          <button
+            onClick={handleDownloadExcel}
+            className="bg-[#435f97] hover:bg-[#384e7d] text-white text-xs px-3 py-1.5 rounded-md shadow-sm transition-all"
+          >
+            Download Excel
+          </button>
+        </div>
+      </div>
+
+      {/* ===== Content Section ===== */}
+      <div className="flex-1 overflow-y-auto overflow-x-hidden border border-border bg-white rounded-lg shadow-sm">
+        {loadingHtml ? (
+          <p className="text-muted-foreground animate-pulse p-4">Loading report HTML...</p>
+        ) : isScheduleOfInvestments ? (
+          <div className="p-6 text-center text-muted-foreground font-medium text-sm">
+            ⚠️ File too large to display.  
+            <a
+              href={reportUrl ?? "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:underline ml-1"
+            >
+              View on SEC.gov ↗
+            </a>
+          </div>
+        ) : (
+          <div
+            className={`${styles["sec-html-content"]} prose max-w-none p-4 text-sm leading-relaxed`}
+            dangerouslySetInnerHTML={{
+              __html: htmlContent || "<p>No content loaded.</p>",
+            }}
+          />
+        )}
+      </div>
+    </div>
+  );
+}
