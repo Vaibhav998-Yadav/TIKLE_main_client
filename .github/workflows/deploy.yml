@@ -28,23 +28,16 @@ jobs:
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.HOSTINGER_HOST }}
-          username: ${{ secrets.HOSTINGER_USER }}   # root user
+          username: ${{ secrets.HOSTINGER_USER }}
           key: ${{ secrets.HOSTINGER_SSH_KEY }}
           source: ".next,package.json,package-lock.json,public,next.config.ts"
           target: "${{ secrets.HOSTINGER_PROJECT_PATH }}"
-
-      - name: Upload ENV file
-        if: ${{ secrets.ENV_FILE != '' }}
-        run: |
-          echo "${{ secrets.ENV_FILE }}" | ssh -i ./deploy_key -o StrictHostKeyChecking=no \
-          ${{ secrets.HOSTINGER_USER }}@${{ secrets.HOSTINGER_HOST }} \
-          "cat > ${{ secrets.HOSTINGER_PROJECT_PATH }}/.env"
 
       - name: Restart app with PM2
         uses: appleboy/ssh-action@v1.2.0
         with:
           host: ${{ secrets.HOSTINGER_HOST }}
-          username: ${{ secrets.HOSTINGER_USER }}   # root
+          username: ${{ secrets.HOSTINGER_USER }}
           key: ${{ secrets.HOSTINGER_SSH_KEY }}
           script: |
             cd ${{ secrets.HOSTINGER_PROJECT_PATH }}
