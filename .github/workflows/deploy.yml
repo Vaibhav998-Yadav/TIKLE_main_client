@@ -10,14 +10,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      
+      # 1️⃣ Checkout code
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Create deployment ZIP
+      # 2️⃣ Create zip of project (EXCLUDING node_modules & .next)
+      - name: Create project ZIP
         run: |
           zip -r project.zip . -x "node_modules/*" ".git/*" ".next/*"
 
+      # 3️⃣ Upload ZIP to VPS
       - name: Upload ZIP to VPS
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -27,6 +29,7 @@ jobs:
           source: "project.zip"
           target: "${{ secrets.HOSTINGER_PROJECT_PATH }}"
 
+      # 4️⃣ SSH & deploy steps on VPS
       - name: Deploy on VPS
         uses: appleboy/ssh-action@v1.2.0
         with:
@@ -36,23 +39,30 @@ jobs:
           script: |
             cd ${{ secrets.HOSTINGER_PROJECT_PATH }}
 
-            # Clear old project
-            rm -rf app components public .next node_modules package.json package-lock.json next.config.ts tsconfig.json tailwind.config.* prisma utils pages || true
+            # Ensure unzip is installed
+            if ! command -v unzip &> /dev/null
+            then
+              apt-get update && apt-get install -y unzip
+            fi
+
+            # Remove old project files
+            find . -mindepth 1 ! -name 'project.zip' -exec rm -rf {} +
 
             # Unzip new project
             unzip -o project.zip
             rm project.zip
 
+            # Install dependencies
             npm install --omit=dev
 
-            # Inject Clerk keys into VPS runtime
+            # Add Clerk keys to .env
             echo "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }}" > .env
             echo "CLERK_SECRET_KEY=${{ secrets.CLERK_SECRET_KEY }}" >> .env
 
-            # Build Next.js
+            # BUILD PROJECT ON VPS
             npm run build
 
-            # Restart PM2 on port 3010
+            # Restart PM2
             pm2 stop tikle_frontend || true
             pm2 start "npm start" --name tikle_frontend
             pm2 save
