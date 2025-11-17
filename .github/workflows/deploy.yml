@@ -1,4 +1,4 @@
-name: Deploy Next.js to Hostinger (Build on VPS)
+name: Deploy Next.js App to Hostinger VPS
 
 on:
   push:
@@ -10,13 +10,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Checkout latest code
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Create ZIP file
+      # 2️⃣ Create ZIP of entire project (except node_modules & .git)
+      - name: Create ZIP archive
         run: |
           zip -r project.zip . -x "node_modules/*" ".git/*"
 
+      # 3️⃣ Upload ZIP to VPS
       - name: Upload ZIP to VPS
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -26,7 +29,8 @@ jobs:
           source: "project.zip"
           target: "${{ secrets.HOSTINGER_PROJECT_PATH }}"
 
-      - name: Build on VPS
+      # 4️⃣ SSH into VPS → unzip → install → build → restart server
+      - name: Deploy to VPS
         uses: appleboy/ssh-action@v1.2.0
         with:
           host: ${{ secrets.HOSTINGER_HOST }}
@@ -35,20 +39,30 @@ jobs:
           script: |
             cd ${{ secrets.HOSTINGER_PROJECT_PATH }}
 
-            apt-get update -y
-            apt-get install -y unzip build-essential python3
+            # Install unzip if missing
+            if ! command -v unzip &> /dev/null; then
+              apt-get update -y
+              apt-get install unzip -y
+            fi
 
-            rm -rf app components public node_modules .next package.json package-lock.json next.config.ts || true
+            # Remove everything except the uploaded ZIP
+            find . -mindepth 1 ! -name 'project.zip' -exec rm -rf {} +
 
+            # Extract new code
             unzip -o project.zip
             rm project.zip
 
+            # Install dependencies
+            npm install --omit=dev
+
+            # Write Clerk environment vars
             echo "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }}" > .env
             echo "CLERK_SECRET_KEY=${{ secrets.CLERK_SECRET_KEY }}" >> .env
 
-            npm install --omit=dev
+            # Build Next.js project
             npm run build
 
+            # Restart PM2 process
             pm2 stop tikle_main_client || true
             pm2 start "npm start" --name tikle_main_client
             pm2 save
