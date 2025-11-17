@@ -40,6 +40,6 @@ jobs:
 
             npm run build
 
-            pm2 stop tikle_frontend || true
-            pm2 start "npm start" --name tikle_frontend
+            pm2 stop tikle_main_client || true
+            pm2 start "npm start" --name tikle_main_client
             pm2 save
