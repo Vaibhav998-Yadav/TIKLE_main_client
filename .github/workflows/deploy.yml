@@ -34,7 +34,7 @@ jobs:
           host: ${{ secrets.HOSTINGER_HOST }}
           username: ${{ secrets.HOSTINGER_USER }}     # root
           key: ${{ secrets.HOSTINGER_SSH_KEY }}        # your private key
-          source: ".next,package.json,package-lock.json,public,next.config.ts"
+          source: "."
           target: "${{ secrets.HOSTINGER_PROJECT_PATH }}"
 
       # Restart PM2 on the server
