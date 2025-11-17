@@ -1,4 +1,4 @@
-name: Deploy Tikle_client Frontend to Hostinger VPS
+name: Deploy Tikle Frontend to Hostinger VPS
 
 on:
   push:
