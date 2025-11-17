@@ -43,7 +43,6 @@ jobs:
             unzip -o project.zip
             rm project.zip
 
-            # Install dependencies
             npm install --omit=dev
 
             # Inject Clerk keys into VPS runtime
