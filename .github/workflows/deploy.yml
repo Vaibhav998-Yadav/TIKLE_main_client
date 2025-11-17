@@ -1,4 +1,4 @@
-name: Deploy Next.js Frontend to Hostinger VPS
+name: Deploy Next.js Frontend (ZIP Method)
 
 on:
   push:
@@ -10,20 +10,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Upload project to VPS
+      - name: Create deployment ZIP
+        run: |
+          zip -r project.zip . -x "node_modules/*" ".git/*" ".next/*"
+
+      - name: Upload ZIP to VPS
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.HOSTINGER_HOST }}
           username: ${{ secrets.HOSTINGER_USER }}
           key: ${{ secrets.HOSTINGER_SSH_KEY }}
-          source: "."
+          source: "project.zip"
           target: "${{ secrets.HOSTINGER_PROJECT_PATH }}"
-          excludes: "node_modules"
 
-      - name: Build on VPS and restart PM2
+      - name: Deploy on VPS
         uses: appleboy/ssh-action@v1.2.0
         with:
           host: ${{ secrets.HOSTINGER_HOST }}
@@ -31,15 +35,25 @@ jobs:
           key: ${{ secrets.HOSTINGER_SSH_KEY }}
           script: |
             cd ${{ secrets.HOSTINGER_PROJECT_PATH }}
-            rm -rf node_modules
+
+            # Clear old project
+            rm -rf app components public .next node_modules package.json package-lock.json next.config.ts tsconfig.json tailwind.config.* prisma utils pages || true
+
+            # Unzip new project
+            unzip -o project.zip
+            rm project.zip
+
+            # Install dependencies
             npm install --omit=dev
 
-            # Inject Clerk keys into VPS environment
+            # Inject Clerk keys into VPS runtime
             echo "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }}" > .env
             echo "CLERK_SECRET_KEY=${{ secrets.CLERK_SECRET_KEY }}" >> .env
 
+            # Build Next.js
             npm run build
 
-            pm2 stop tikle_main_client || true
-            pm2 start "npm start" --name tikle_main_client
+            # Restart PM2 on port 3010
+            pm2 stop tikle_frontend || true
+            pm2 start "npm start" --name tikle_frontend
             pm2 save
