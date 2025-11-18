@@ -53,5 +53,5 @@ jobs:
             npm run build
 
             pm2 delete tikle_main_client || true
-            pm2 start "npm start" --name tikle_main_client
+            pm2 start npm --name tikle_main_client -- start
             pm2 save
