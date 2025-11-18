@@ -10,11 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout latest code
+      # 1️⃣ Checkout repo
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2️⃣ Create ZIP of entire project (except node_modules & .git)
+      # 2️⃣ Create ZIP of entire project
       - name: Create ZIP archive
         run: |
           zip -r project.zip . -x "node_modules/*" ".git/*"
@@ -29,8 +29,8 @@ jobs:
           source: "project.zip"
           target: "${{ secrets.HOSTINGER_PROJECT_PATH }}"
 
-      # 4️⃣ SSH into VPS → unzip → install → build → restart server
-      - name: Deploy to VPS
+      # 4️⃣ SSH into VPS and deploy
+      - name: Deploy on VPS
         uses: appleboy/ssh-action@v1.2.0
         with:
           host: ${{ secrets.HOSTINGER_HOST }}
@@ -48,21 +48,24 @@ jobs:
             # Remove everything except the uploaded ZIP
             find . -mindepth 1 ! -name 'project.zip' -exec rm -rf {} +
 
-            # Extract new code
+            # Extract project
             unzip -o project.zip
             rm project.zip
 
-            # Install dependencies
-            npm install --omit=dev
+            # Install ALL dependencies (not omit=dev!)
+            npm install
 
-            # Write Clerk environment vars
+            # Add Clerk env vars
             echo "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }}" > .env
             echo "CLERK_SECRET_KEY=${{ secrets.CLERK_SECRET_KEY }}" >> .env
 
             # Build Next.js project
             npm run build
 
-            # Restart PM2 process
-            pm2 stop tikle_main_client || true
+            # Stop any old PM2 processes
+            pm2 delete tikle_main_client || true
+            pm2 delete tikle_frontend || true
+
+            # Start app on port 3010
             pm2 start "npm start" --name tikle_main_client
             pm2 save
