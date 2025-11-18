@@ -10,13 +10,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Pull latest code
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # 2️⃣ Create ZIP of project
       - name: Create ZIP archive
         run: |
           zip -r project.zip . -x "node_modules/*" ".git/*"
 
+      # 3️⃣ Upload ZIP to VPS
       - name: Upload ZIP to VPS
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -26,6 +29,7 @@ jobs:
           source: "project.zip"
           target: "${{ secrets.HOSTINGER_PROJECT_PATH }}"
 
+      # 4️⃣ Deploy on VPS
       - name: Deploy on VPS
         uses: appleboy/ssh-action@v1.2.0
         with:
@@ -35,23 +39,33 @@ jobs:
           script: |
             cd ${{ secrets.HOSTINGER_PROJECT_PATH }}
 
+            # Install unzip if not present
             if ! command -v unzip &> /dev/null; then
               apt-get update -y
               apt-get install unzip -y
             fi
 
-            find . -mindepth 1 ! -name 'project.zip' -exec rm -rf {} +
+            # Remove only old project files (safe)
+            rm -rf app components public hooks lib .next node_modules package.json package-lock.json tsconfig.json next.config.ts postcss.config.mjs eslint.config.mjs components.json global.d.ts next-env.d.ts middleware.ts
 
+            # Extract new code
             unzip -o project.zip
             rm project.zip
 
+            # Install ALL dependencies
             npm install
 
+            # Write Clerk environment vars
             echo "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }}" > .env
             echo "CLERK_SECRET_KEY=${{ secrets.CLERK_SECRET_KEY }}" >> .env
 
+            # Build Next.js
             npm run build
 
+            # Stop only tikle_main_client (not others)
             pm2 delete tikle_main_client || true
+
+            # Start app correctly
             pm2 start npm --name tikle_main_client -- start
+
             pm2 save
